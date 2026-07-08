@@ -1,6 +1,8 @@
 package com.example.chessanalyzer.engine.stockfish
 
+import android.content.Context
 import java.io.BufferedReader
+import java.io.File
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter
 import java.util.concurrent.Executors
@@ -14,24 +16,26 @@ data class AnalysisResult(
     val pv: List<String> // Principal Variation
 )
 
-class StockfishEngine {
+class StockfishEngine(private val context: Context? = null) {
 
     private var process: Process? = null
     private var reader: BufferedReader? = null
     private var writer: OutputStreamWriter? = null
     private val executor = Executors.newSingleThreadExecutor()
     private var analysisFuture: Future<*>? = null
-
-    init {
-        start()
-    }
+    private var isReady = false
 
     fun start() {
         try {
-            // Assuming libstockfish.so is in the app's native libraries directory
-            // and can be executed directly. This might need adjustment based on Android's NDK setup.
-            // For AndroidIDE, the binary might need to be placed in a specific location or accessed differently.
-            process = Runtime.getRuntime().exec("stockfish") // Placeholder, actual path might vary
+            val nativeLibDir = context?.applicationInfo?.nativeLibraryDir ?: return
+            val stockfishPath = "$nativeLibDir/libstockfish.so"
+            val stockfishFile = File(stockfishPath)
+            if (!stockfishFile.exists()) {
+                println("Stockfish binary not found at: $stockfishPath")
+                return
+            }
+            stockfishFile.setExecutable(true)
+            process = Runtime.getRuntime().exec(stockfishPath)
             reader = BufferedReader(InputStreamReader(process!!.inputStream))
             writer = OutputStreamWriter(process!!.outputStream)
 
@@ -44,6 +48,7 @@ class StockfishEngine {
             sendCommand("isready")
             readOutputUntil("readyok")
 
+            isReady = true
             println("Stockfish engine started and ready.")
         } catch (e: Exception) {
             e.printStackTrace()
@@ -77,6 +82,10 @@ class StockfishEngine {
     }
 
     fun analyzePosition(fen: String, depth: Int, onResult: (AnalysisResult) -> Unit) {
+        if (!isReady) {
+            onResult(AnalysisResult(null, null, null, null, emptyList()))
+            return
+        }
         analysisFuture?.cancel(true)
         analysisFuture = executor.submit {
             try {

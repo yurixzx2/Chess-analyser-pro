@@ -25,7 +25,9 @@ class ChessAnalyzerAccessibilityService : AccessibilityService() {
     override fun onCreate() {
         super.onCreate()
         windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
-        chessEngineManager = ChessEngineManager(StockfishEngine(), MaiaEngine(applicationContext))
+        val stockfish = StockfishEngine(applicationContext)
+        stockfish.start()
+        chessEngineManager = ChessEngineManager(stockfish, MaiaEngine(applicationContext))
     }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
