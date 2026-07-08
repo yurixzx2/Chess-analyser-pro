@@ -3,7 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="#80000000" <!-- Semi-transparent black background -->
+    android:background="#80000000"
     android:padding="8dp"
     android:layout_margin="8dp">
 
@@ -36,7 +36,7 @@
     <!-- Canvas com setas no tabuleiro (placeholder - será desenhado programaticamente) -->
     <View
         android:id="@+id/chessBoardOverlayCanvas"
-        android:layout_width="200dp" <!-- Example size, adjust as needed -->
+        android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/transparent" />
