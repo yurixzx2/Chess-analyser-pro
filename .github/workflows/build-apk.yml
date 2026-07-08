@@ -1,4 +1,4 @@
-Build APK
+name: Build APK
 on:
   push:
     branches: [ main ]
@@ -26,4 +26,4 @@ jobs:
       with:
         name: TalProV3-debug
         path: app/build/outputs/apk/debug/*.apk
-        retention-days
+        retention-days: 30
