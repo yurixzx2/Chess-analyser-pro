@@ -23,7 +23,6 @@
     <string name="style_mode_crazy">Maluca</string>
     <string name="start_button">INICIAR</string>
     <string name="accessibility_service_description">Permite que o TAL PRO V3 leia o tabuleiro em aplicativos de xadrez.</string>
-</resources>
 
     <string-array name="style_modes">
         <item>@string/style_mode_default</item>
@@ -33,3 +32,4 @@
         <item>@string/style_mode_human</item>
         <item>@string/style_mode_crazy</item>
     </string-array>
+</resources>
