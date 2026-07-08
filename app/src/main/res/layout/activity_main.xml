@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:colorBackground"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/premium_badge_background"
+                    android:paddingStart="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="4dp"
+                    android:text="@string/premium_badge"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Depth Slider -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/depth_slider_label"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="18sp"
+                android:layout_marginTop="16dp"/>
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/depthSlider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:valueFrom="1.0"
+                android:valueTo="20.0"
+                android:stepSize="1.0"
+                android:value="10.0"
+                app:trackColorActive="@color/green_accent"
+                app:thumbColor="@color/green_accent"
+                app:labelBehavior="gone"/>
+
+            <TextView
+                android:id="@+id/eloEstimatedTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/elo_estimated_label"
+                android:textColor="?android:textColorSecondary"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Toggles -->
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/showArrowsToggle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/show_arrows_toggle"
+                android:textColor="?android:textColorPrimary"
+                app:thumbTint="@color/green_accent"
+                app:trackTint="@color/green_accent_light"
+                android:checked="true"/>
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/showEnemyBestMoveToggle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/show_enemy_best_move_toggle"
+                android:textColor="?android:textColorPrimary"
+                app:thumbTint="@color/green_accent"
+                app:trackTint="@color/green_accent_light"
+                android:checked="true"/>
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/hideSuggestionsToggle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/hide_suggestions_toggle"
+                android:textColor="?android:textColorPrimary"
+                app:thumbTint="@color/green_accent"
+                app:trackTint="@color/green_accent_light"/>
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/analyzeMyMovesToggle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/analyze_my_moves_toggle"
+                android:textColor="?android:textColorPrimary"
+                app:thumbTint="@color/green_accent"
+                app:trackTint="@color/green_accent_light"
+                android:checked="true"/>
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/showEvaluationToggle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/show_evaluation_toggle"
+                android:textColor="?android:textColorPrimary"
+                app:thumbTint="@color/green_accent"
+                app:trackTint="@color/green_accent_light"
+                android:checked="true"/>
+
+            <!-- Move Notation Toggle -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/move_notation_label"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="18sp"
+                android:layout_marginTop="16dp"/>
+
+            <RadioGroup
+                android:id="@+id/moveNotationRadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:checkedButton="@+id/radioSan">
+                <RadioButton
+                    android:id="@+id/radioSan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/move_notation_san"
+                    android:textColor="?android:textColorPrimary"
+                    android:buttonTint="@color/green_accent"/>
+                <RadioButton
+                    android:id="@+id/radioUci"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/move_notation_uci"
+                    android:textColor="?android:textColorPrimary"
+                    android:buttonTint="@color/green_accent"/>
+            </RadioGroup>
+
+            <!-- Endgame Boost Toggle -->
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/endgameBoostToggle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/endgame_boost_toggle"
+                android:textColor="?android:textColorPrimary"
+                app:thumbTint="@color/green_accent"
+                app:trackTint="@color/green_accent_light"/>
+
+            <!-- Auto Play Toggle -->
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/autoPlayToggle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/auto_play_toggle"
+                android:textColor="?android:textColorPrimary"
+                app:thumbTint="@color/green_accent"
+                app:trackTint="@color/green_accent_light"/>
+
+            <!-- Style Mode Selector -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/style_mode_label"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="18sp"
+                android:layout_marginTop="16dp"/>
+
+            <Spinner
+                android:id="@+id/styleModeSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/style_modes"
+                android:backgroundTint="@color/green_accent"
+                android:popupBackground="@color/dark_surface"/>
+
+            <!-- START Button -->
+            <Button
+                android:id="@+id/startButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/start_button"
+                android:backgroundTint="@color/green_accent"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:padding="12dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

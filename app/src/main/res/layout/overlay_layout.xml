@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#80000000" <!-- Semi-transparent black background -->
+    android:padding="8dp"
+    android:layout_margin="8dp">
+
+    <!-- Barra de avaliação (centipawns/mate) -->
+    <TextView
+        android:id="@+id/evaluationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Avaliação: +0.50"
+        android:textColor="@color/green_accent"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <!-- Badge de classificação do lance -->
+    <TextView
+        android:id="@+id/moveClassificationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/move_classification_badge_background"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:text="Brilliant"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <!-- Canvas com setas no tabuleiro (placeholder - será desenhado programaticamente) -->
+    <View
+        android:id="@+id/chessBoardOverlayCanvas"
+        android:layout_width="200dp" <!-- Example size, adjust as needed -->
+        android:layout_height="200dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent" />
+
+    <!-- Info compacta (placeholder) -->
+    <TextView
+        android:id="@+id/compactInfoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Info: d4 d5 c4"
+        android:textColor="@color/text_color_secondary"
+        android:textSize="12sp" />
+
+</LinearLayout>

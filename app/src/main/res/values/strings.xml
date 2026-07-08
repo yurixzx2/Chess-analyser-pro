@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TAL PRO V3</string>
+    <string name="premium_badge">Premium</string>
+    <string name="depth_slider_label">Depth</string>
+    <string name="elo_estimated_label">ELO Estimado:</string>
+    <string name="show_arrows_toggle">Mostrar Setas</string>
+    <string name="show_enemy_best_move_toggle">Mostrar Melhor Lance do Oponente</string>
+    <string name="hide_suggestions_toggle">Esconder Sugestões</string>
+    <string name="analyze_my_moves_toggle">Analisar Meus Lances</string>
+    <string name="show_evaluation_toggle">Mostrar Avaliação</string>
+    <string name="move_notation_label">Notação de Lance</string>
+    <string name="move_notation_san">SAN</string>
+    <string name="move_notation_uci">UCI</string>
+    <string name="endgame_boost_toggle">Endgame Boost</string>
+    <string name="auto_play_toggle">Auto Play</string>
+    <string name="style_mode_label">Modo de Estilo</string>
+    <string name="style_mode_default">Padrão</string>
+    <string name="style_mode_aggressive">Agressivo</string>
+    <string name="style_mode_defensive">Defensivo</string>
+    <string name="style_mode_trader">Trocador</string>
+    <string name="style_mode_human">Humano</string>
+    <string name="style_mode_crazy">Maluca</string>
+    <string name="start_button">INICIAR</string>
+    <string name="accessibility_service_description">Permite que o TAL PRO V3 leia o tabuleiro em aplicativos de xadrez.</string>
+</resources>
+
+    <string-array name="style_modes">
+        <item>@string/style_mode_default</item>
+        <item>@string/style_mode_aggressive</item>
+        <item>@string/style_mode_defensive</item>
+        <item>@string/style_mode_trader</item>
+        <item>@string/style_mode_human</item>
+        <item>@string/style_mode_crazy</item>
+    </string-array>
